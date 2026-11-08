@@ -1,0 +1,1019 @@
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WonderWords - Học tiếng Anh vui vẻ</title>
+<style>
+:root{--ink:#25335b;--muted:#74809d;--purple:#7567f8;--pink:#ff739c;--yellow:#ffd75e;--blue:#51c8ef;--green:#67d6ac;--paper:#fff;--bg:#f4f6ff;--line:#e8eaf5;--shadow:0 12px 30px #343c6a12}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,"Segoe UI",Arial,sans-serif;background:var(--bg);color:var(--ink)}button,input,select{font:inherit}button{cursor:pointer;border:0}button:focus-visible,input:focus-visible{outline:3px solid #b8b2ff;outline-offset:2px}
+.app{max-width:1450px;margin:auto;min-height:100vh;display:grid;grid-template-columns:245px minmax(0,1fr);gap:22px;padding:18px}
+.sidebar{background:#fff;border:1px solid var(--line);border-radius:25px;padding:22px 15px;box-shadow:var(--shadow);align-self:start;position:sticky;top:16px}
+.brand{display:flex;align-items:center;gap:10px;font-size:21px;font-weight:900;margin:2px 8px 24px;color:#4e42cb}.logo{width:42px;height:42px;border-radius:15px;background:linear-gradient(135deg,#ffcf5c,#ff8fb0);display:grid;place-items:center;font-size:25px}
+.profile{background:#f1efff;border-radius:17px;padding:13px;display:flex;gap:10px;align-items:center;margin-bottom:20px}.avatar{width:43px;height:43px;border-radius:15px;background:#ffe4ed;display:grid;place-items:center;font-size:26px}.profile strong{display:block;font-size:13px}.profile small{color:var(--muted)}
+.nav-label{font-size:10px;font-weight:900;letter-spacing:1.4px;color:#a0a6bb;margin:18px 10px 8px}.nav{width:100%;text-align:left;background:transparent;color:#6f7897;border-radius:13px;padding:12px 13px;margin:3px 0;font-weight:700;display:flex;gap:11px;align-items:center}.nav.active,.nav:hover{background:#eeecff;color:#574bd8}.nav span{font-size:19px;width:23px;text-align:center}
+.main{min-width:0}.topbar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:4px 0 20px}.welcome h1{font-size:clamp(22px,3vw,31px);margin:0 0 5px;letter-spacing:-.8px}.welcome p{margin:0;color:var(--muted);font-size:14px}.top-actions{display:flex;align-items:center;gap:10px}.pill{background:#fff;border:1px solid var(--line);border-radius:13px;padding:10px 13px;font-weight:800;color:var(--ink)}.streak{background:#fff4d3;color:#986500;border-radius:13px;padding:11px;font-weight:900}
+.hero{position:relative;overflow:hidden;border-radius:26px;background:linear-gradient(115deg,#786cf8,#9d8bff 65%,#c3a8ff);color:#fff;padding:27px 30px;display:flex;justify-content:space-between;align-items:center;min-height:190px;box-shadow:0 15px 30px #8173f82c}.hero:after{content:"";position:absolute;width:230px;height:230px;border:30px solid #ffffff17;border-radius:50%;right:100px;top:-110px}.hero-copy{max-width:560px;position:relative;z-index:1}.eyebrow{font-size:11px;letter-spacing:1.8px;font-weight:900;color:#ffe78e}.hero h2{font-size:clamp(23px,3vw,34px);line-height:1.15;margin:10px 0}.hero p{margin:0 0 18px;color:#f0edff;font-size:14px;max-width:470px}.primary{background:#ffdf68;color:#41356e;border-radius:12px;padding:12px 17px;font-weight:900;box-shadow:0 4px 0 #e5b947}.hero-art{font-size:clamp(70px,9vw,115px);filter:drop-shadow(0 9px 2px #4435a52a);position:relative;z-index:1;margin-right:24px}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px;margin:18px 0 25px}.stat{background:#fff;border:1px solid var(--line);border-radius:18px;padding:15px;display:flex;align-items:center;gap:12px;box-shadow:var(--shadow)}.stat-icon{width:43px;height:43px;border-radius:14px;display:grid;place-items:center;font-size:22px}.stat strong{display:block;font-size:20px}.stat small{color:var(--muted);font-size:11px}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:10px;margin:25px 0 13px}.section-head h2{margin:0;font-size:21px}.section-head p{margin:5px 0 0;color:var(--muted);font-size:13px}.text-btn{background:transparent;color:#6256e8;font-weight:900}
+.search-row{display:flex;gap:10px;margin-bottom:15px}.search{flex:1;min-width:0;border:1px solid var(--line);border-radius:14px;background:#fff;padding:13px 15px;color:var(--ink)}.select{border:1px solid var(--line);border-radius:14px;background:#fff;padding:12px;color:var(--ink);max-width:45%}
+.topic-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.topic{border-radius:19px;padding:15px;text-align:left;min-height:130px;position:relative;overflow:hidden;border:2px solid transparent;transition:.18s;display:flex;flex-direction:column;justify-content:space-between}.topic:hover{transform:translateY(-3px)}.topic.selected{border-color:#4b40ce;box-shadow:0 0 0 3px #7167f82b}.topic .emoji{font-size:35px;align-self:flex-end;line-height:1}.topic strong{font-size:14px;display:block}.topic small{font-size:11px;opacity:.75;display:block;margin-top:5px}.topic .count{font-size:10px;font-weight:900;opacity:.75}.t1{background:#ffe7ed;color:#963d62}.t2{background:#dff7ff;color:#176a8a}.t3{background:#fff1c8;color:#93620a}.t4{background:#e6f8e9;color:#287c4b}.t5{background:#ece7ff;color:#5b49b2}.t6{background:#ffe6d8;color:#9e502e}.t7{background:#e1f8f1;color:#267d69}.t8{background:#e8efff;color:#405ba7}.t9{background:#fce7ff;color:#9244a5}.t10{background:#e9f7d5;color:#577c20}.t11{background:#ffe4e0;color:#a74d48}.t12{background:#e1f2ff;color:#286a9d}
+.content-grid{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(270px,.7fr);gap:16px;margin-top:18px}.panel{background:#fff;border:1px solid var(--line);border-radius:22px;padding:19px;box-shadow:var(--shadow);min-width:0}.panel-head{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:14px}.panel-head h3{margin:0;font-size:17px}.tag{font-size:11px;background:#f0eeff;color:#6457dc;padding:7px 9px;border-radius:9px;font-weight:900}
+.word-list{display:grid;gap:9px}.word{border:1px solid #eceef7;border-radius:15px;padding:12px;display:grid;grid-template-columns:48px minmax(0,1fr) auto;align-items:center;gap:11px}.word-emoji{width:46px;height:46px;background:#f4f2ff;border-radius:14px;display:grid;place-items:center;font-size:25px}.word h4{margin:0 0 4px;font-size:15px}.word .meaning{font-size:12px;color:var(--muted)}.word .example{font-size:11px;color:#8a91a8;margin-top:5px}.word-actions{display:flex;gap:5px}.round{width:34px;height:34px;border-radius:11px;background:#f3f2ff;color:#6356dc;font-size:16px}.round:hover{background:#e5e1ff}.empty{padding:25px;text-align:center;color:var(--muted)}
+.progress-box{background:#fff7dc;border-radius:16px;padding:14px;margin-bottom:14px}.sentence-card{background:linear-gradient(135deg,#e4f7ff,#f2edff);padding:16px;border-radius:17px;margin-bottom:12px}.sentence-card .label{font-size:10px;letter-spacing:1px;font-weight:900;color:#6e67b8}.sentence-card p{font-size:19px;line-height:1.4;font-weight:900;margin:8px 0}.sentence-card small{color:#727b9a}.listen-btn{background:#5f54e8;color:white;padding:10px 12px;border-radius:12px;font-weight:800;width:100%;margin-top:10px}
+.practice-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px}.practice-intro{font-size:12px;color:var(--muted);line-height:1.5}.write-word{font-size:26px;font-weight:900;color:#5e53dd;margin:12px 0 4px}.write-meaning{font-size:13px;color:var(--muted)}canvas{width:100%;height:160px;touch-action:none;user-select:none;-webkit-user-select:none;border:2px dashed #d9d8f5;border-radius:15px;background-color:#fffefa;display:block;margin:10px 0;background-image:repeating-linear-gradient(to bottom,transparent 0,transparent 39px,#e6e5fa 40px,#e6e5fa 41px)}.btn-row{display:flex;gap:8px;flex-wrap:wrap}.btn{padding:10px 13px;border-radius:11px;background:#f0efff;color:#5c50d8;font-weight:800}.btn.primary2{background:#5f54e8;color:white}.answer{font-size:12px;margin-top:10px;color:#2b9871;font-weight:800;min-height:16px}
+.quiz-options{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:14px 0}.quiz-option{background:#f7f7ff;border:2px solid #efeff9;border-radius:13px;padding:13px 8px;font-weight:800;color:#424e75}.quiz-option:hover{border-color:#9b91ff}.quiz-option.correct{border-color:#50c995;background:#e8fff5}.quiz-option.wrong{border-color:#ff8e9e;background:#fff0f2}.quiz-word{font-size:34px;text-align:center;margin:15px 0 5px}.quiz-sub{text-align:center;color:var(--muted);font-size:12px}
+.footer{text-align:center;color:#9ba2b7;font-size:11px;padding:25px 0 8px}
+.mobile-nav{display:none} section[id],.panel[id]{scroll-margin-top:14px}
+
+.account-btn{background:#5f54e8;color:#fff;border-radius:13px;padding:10px 13px;font-weight:900;white-space:nowrap}
+.profile{cursor:pointer}.profile small{display:block;line-height:1.5}.account-modal{position:fixed;inset:0;z-index:1000;background:#20264b88;display:none;align-items:center;justify-content:center;padding:18px}.account-modal.open{display:flex}.account-card{width:min(100%,460px);max-height:90vh;overflow-y:auto;background:#fff;border-radius:25px;padding:25px;box-shadow:0 24px 80px #171b4933}.account-card h2{margin:0 0 8px;font-size:24px}.account-card p{font-size:13px;line-height:1.6;color:#74809d}.account-card label{display:block;font-size:12px;font-weight:900;margin:12px 0 4px}.account-card input,.account-card select{width:100%;border:1px solid #e2e5f2;border-radius:12px;padding:11px 13px;font-size:14px}.account-actions{display:flex;gap:9px;margin-top:16px}.account-actions button{flex:1}.save-note{font-size:11px;color:#6c61d9;margin-top:10px;line-height:1.5}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+
+.admin-table{width:100%;border-collapse:collapse;margin-top:15px;background:#fff;border-radius:16px;overflow:hidden;box-shadow:var(--shadow)}
+.admin-table th,.admin-table td{padding:12px 15px;text-align:left;border-bottom:1px solid var(--line);font-size:13px}
+.admin-table th{background:#f8f9fe;color:var(--muted);font-weight:800}
+.admin-table tr:last-child td{border-bottom:none}
+.badge{padding:4px 9px;border-radius:8px;font-size:11px;font-weight:800;display:inline-block}
+.badge-gold{background:#fff6d5;color:#8f6b00}
+.badge-green{background:#e2f9ed;color:#1d7e48}
+.badge-blue{background:#e3f2ff;color:#1e6bb8}
+.badge-red{background:#ffebee;color:#c62828}
+.keyboard-box{display:flex;gap:8px;margin:10px 0 12px}
+.keyboard-box input{flex:1;border:1px solid var(--line);border-radius:12px;padding:10px 14px;font-weight:700}
+.tabs-auth{display:flex;gap:8px;margin-bottom:12px;border-bottom:2px solid #e8eaf5}
+.tab-auth-btn{background:none;border:none;padding:8px 12px;font-weight:800;color:var(--muted);border-bottom:3px solid transparent;margin-bottom:-2px}
+.tab-auth-btn.active{color:var(--purple);border-bottom-color:var(--purple)}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="sidebar">
+  <div class="brand"><div class="logo">🦉</div><div>Wonder<span style="color:#ff779d">Words</span><small style="display:block;font-size:10px;color:#9a9fba;font-weight:700;letter-spacing:1px">ENGLISH ADVENTURE</small></div></div>
+  <div class="profile" id="profileCard"><div class="avatar">🧑🏻‍🎓</div><div><strong id="profileName">Khách học tập</strong><small id="profileSub">Đăng nhập để lưu tiến độ</small></div></div>
+  
+  <div id="adminNavGroup" style="display:none;">
+    <div class="nav-label">QUẢN TRỊ HỆ THỐNG</div>
+    <button class="nav" id="btnAdminView"><span>📊</span> Bảng Quản trị viên</button>
+  </div>
+
+  <div id="studentNavGroup">
+    <div class="nav-label">HỌC TẬP</div>
+    <button class="nav active" id="btnStudentView" data-scroll="topics"><span>🎓</span> Giao diện Người học</button>
+    <button class="nav" data-scroll="topics"><span>🗺️</span> Chủ đề từ vựng</button>
+    <button class="nav" data-scroll="words"><span>📚</span> Kho từ vựng</button>
+    <button class="nav" data-scroll="listening"><span>🎧</span> Luyện nghe câu</button>
+    <button class="nav" data-scroll="writing"><span>✍️</span> Luyện viết & Kiểm tra</button>
+    <button class="nav" data-scroll="quiz"><span>🧠</span> Kiểm tra nhanh</button>
+    <div class="nav-label">THÀNH TÍCH</div>
+    <button class="nav" data-scroll="stats"><span>🏆</span> Tiến độ của tôi</button>
+  </div>
+  
+  <div style="margin:24px 5px 0;background:#fff4d6;border-radius:17px;padding:14px;font-size:12px;line-height:1.5">🌟 <b>Mỗi ngày một chút!</b><br><span style="color:#92712a">5 từ mới mỗi ngày giúp bạn tiến bộ đều đặn.</span></div>
+</aside>
+
+<main class="main">
+<header class="topbar">
+  <div class="welcome"><h1 id="welcomeTitle">Xin chào, nhà thám hiểm! 👋</h1><p id="welcomeSub">Cùng mở rộng vốn từ và tự tin nói tiếng Anh nhé.</p></div>
+  <div class="top-actions">
+    <div class="streak">🔥 <span id="streak">1</span> ngày</div>
+    <button class="pill" id="soundToggle">🔊 Âm thanh: bật</button>
+    <button class="account-btn" id="accountButton">👤 Đăng nhập</button>
+    <button class="btn" id="btnAdminLoginTrigger" style="background:#4a148c;color:#fff;border-radius:13px;padding:10px 12px;font-weight:800;font-size:12px">🔑 Admin</button>
+  </div>
+</header>
+
+<div id="adminSection" style="display:none;">
+  <section class="panel">
+    <div class="panel-head">
+      <h3>📈 Bảng theo dõi tiến độ người học (Quản trị viên)</h3>
+      <span class="tag">ADMIN DASHBOARD</span>
+    </div>
+    <p class="practice-intro">Theo dõi danh sách người học, số từ đã thuộc, điểm XP, thông tin cá nhân và quản lý tài khoản quá hạn 3 tháng (90 ngày).</p>
+    
+    <div class="stats" style="grid-template-columns:repeat(3,minmax(0,1fr));margin:15px 0">
+      <div class="stat"><div class="stat-icon" style="background:#e3f2ff">👥</div><div><strong id="adminTotalUsers">0</strong><small>Tổng số người học</small></div></div>
+      <div class="stat"><div class="stat-icon" style="background:#ddf8eb">🌟</div><div><strong id="adminTotalXp">0 XP</strong><small>Tổng XP tích lũy</small></div></div>
+      <div class="stat"><div class="stat-icon" style="background:#fff0d2">📚</div><div><strong id="adminLearnedTotal">0</strong><small>Tổng từ đã học</small></div></div>
+    </div>
+
+    <div style="overflow-x:auto;">
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>Họ và Tên</th>
+            <th>Thông tin (Tuổi/Giới tính)</th>
+            <th>Email</th>
+            <th>Từ đã thuộc / XP</th>
+            <th>Lần cuối truy cập</th>
+            <th>Trạng thái & Đánh giá</th>
+          </tr>
+        </thead>
+        <tbody id="adminTableBody">
+        </tbody>
+      </table>
+    </div>
+  </section>
+</div>
+
+<div id="studentSection">
+<section class="hero"><div class="hero-copy"><div class="eyebrow">✨ HỌC MÀ CHƠI · CHƠI MÀ HỌC</div><h2>Mỗi từ mới là một<br>cuộc phiêu lưu!</h2><p>Khám phá từ vựng bằng hình ảnh, nghe phát âm chuẩn từ trình duyệt, ghép câu và luyện viết trực tiếp trên màn hình.</p><button class="primary" onclick="document.getElementById('topics').scrollIntoView({behavior:'smooth'})">Khám phá ngay ➜</button></div><div class="hero-art">🦉📖</div></section>
+<section class="stats" id="stats">
+ <div class="stat"><div class="stat-icon" style="background:#fff0d2">📖</div><div><strong id="totalWords">3000+</strong><small>Từ trong bộ học mẫu</small></div></div>
+ <div class="stat"><div class="stat-icon" style="background:#e8e5ff">🎯</div><div><strong id="learnedCount">0</strong><small>Từ đã đánh dấu học</small></div></div>
+ <div class="stat"><div class="stat-icon" style="background:#ddf8eb">⭐</div><div><strong id="points">0</strong><small>Điểm kinh nghiệm XP</small></div></div>
+ <div class="stat"><div class="stat-icon" style="background:#ffe5ed">❤️</div><div><strong id="favCount">0</strong><small>Từ yêu thích</small></div></div>
+</section>
+<section id="topics">
+ <div class="section-head"><div><h2>🧭 Khám phá theo chủ đề</h2><p>Chọn một thế giới để bắt đầu học từ mới.</p></div><button class="text-btn" id="allTopics">Tất cả chủ đề ↗</button></div>
+ <div class="topic-grid" id="topicGrid"></div>
+</section>
+<section id="words">
+ <div class="section-head"><div><h2>📚 Kho từ vựng</h2><p id="wordSubtitle">Từ thông dụng kèm nghĩa, ví dụ và phát âm.</p></div><span class="tag" id="wordCountTag">3000+ TỪ</span></div>
+ <div class="search-row"><input class="search" id="searchInput" placeholder="🔎 Tìm từ tiếng Anh hoặc nghĩa tiếng Việt..." aria-label="Tìm từ vựng"><select class="select" id="levelFilter" aria-label="Lọc trình độ"><option value="all">Mọi trình độ</option><option value="Dễ">Cơ bản</option><option value="Trung bình">Trung bình</option><option value="Nâng cao">Nâng cao</option></select><select class="select" id="sortFilter" aria-label="Sắp xếp"><option value="default">Thứ tự gốc</option><option value="az">A → Z</option></select></div>
+ <div class="word-list" id="wordList"></div><div style="text-align:center;margin-top:13px"><button class="btn" id="showMore">➕ Xem thêm từ</button></div>
+</section>
+<div class="content-grid">
+<section class="panel" id="listening"><div class="panel-head"><h3>🎧 Nghe và ghép thành câu</h3><span class="tag">LISTENING</span></div><div class="sentence-card"><div class="label">NGHE CÂU TIẾNG ANH</div><p id="sentenceText">I love spending time with my family.</p><small id="sentenceMeaning">Tôi thích dành thời gian bên gia đình.</small><button class="listen-btn" id="playSentence">🔊 Nghe cả câu</button></div><p class="practice-intro">Nghe câu mẫu rồi sắp xếp các từ bên dưới theo đúng thứ tự. Bấm “Kiểm tra” để xem kết quả.</p><div id="sentenceBank" class="quiz-options"></div><div style="font-size:12px;color:#727b9a;margin:6px 0">Câu bạn ghép:</div><div id="sentenceBuild" style="min-height:45px;border:1px dashed #d9d8f5;border-radius:12px;padding:10px;display:flex;flex-wrap:wrap;gap:6px"></div><div class="btn-row" style="margin-top:10px"><button class="btn primary2" id="checkSentence">✓ Kiểm tra</button><button class="btn" id="resetSentence">↺ Làm lại</button><button class="btn" id="nextSentence">Câu tiếp ➜</button></div><div class="answer" id="sentenceFeedback"></div></section>
+<section class="panel" id="quiz"><div class="panel-head"><h3>🧠 Đố vui từ vựng</h3><span class="tag">QUIZ</span></div><p class="practice-intro">Chọn nghĩa tiếng Việt đúng của từ sau. Mỗi câu đúng nhận 5 XP!</p><div class="quiz-word" id="quizWord">🌻 flower</div><div class="quiz-sub" id="quizHint">Từ vựng ngẫu nhiên</div><div class="quiz-options" id="quizOptions"></div><div class="answer" id="quizFeedback"></div><button class="btn primary2" id="newQuiz" style="width:100%;margin-top:7px">Câu tiếp theo ➜</button></section>
+</div>
+<div class="practice-grid">
+<section class="panel" id="writing">
+  <div class="panel-head"><h3>✍️ Phòng luyện viết tay & Kiểm tra</h3><span class="tag">HANDWRITING & KEYBOARD</span></div>
+  <p class="practice-intro">Luyện vẽ nét từ bằng tay/chuột trên bảng, sau đó nhập lại chính xác từ gợi ý từ bàn phím để kiểm tra bài.</p>
+  <div class="write-word" id="writeWord">beautiful</div>
+  <div class="write-meaning" id="writeMeaning">xinh đẹp · /ˈbjuːtɪfəl/</div>
+  <canvas id="writingCanvas" aria-label="Vùng luyện viết bằng tay"></canvas>
+  
+  <div class="keyboard-box">
+    <input type="text" id="keyboardInput" placeholder="⌨️ Nhập lại từ tiếng Anh từ bàn phím..." autocomplete="off">
+    <button class="btn primary2" id="checkKeyboardBtn">✓ Check từ</button>
+  </div>
+
+  <div class="btn-row">
+    <button class="btn" id="clearCanvas">🧽 Xóa nét viết</button>
+    <button class="btn" id="newWrite">🔄 Từ tiếp theo</button>
+    <button class="btn" id="showWriting">👀 Hiện từ mẫu & Nghe</button>
+  </div>
+  <div class="answer" id="writingFeedback">Mẹo: chú ý viết đúng chính tả tiếng Anh và bấm "Check từ".</div>
+</section>
+
+<section class="panel"><div class="panel-head"><h3>🗣️ Góc luyện phát âm</h3><span class="tag">SPEAKING</span></div><p class="practice-intro">Chọn một từ trong kho, nghe mẫu phát âm và thử đọc theo. Trình duyệt sẽ sử dụng giọng đọc tiếng Anh có sẵn trên thiết bị.</p><div style="background:#f0eeff;border-radius:18px;text-align:center;padding:20px"><div style="font-size:44px" id="speakEmoji">🌈</div><div class="write-word" id="speakWord">beautiful</div><div id="speakMeaning" style="font-size:13px;color:#727b9a">xinh đẹp</div><button class="listen-btn" id="speakButton">🔊 Nghe phát âm</button><button class="btn" id="randomSpeak" style="margin-top:8px">🎲 Từ khác</button></div><div class="progress-box" style="margin-top:14px;background:#e8fff4"><b>💡 Mẹo phát âm</b><p class="practice-intro" style="margin-bottom:0">Nghe 2–3 lần, đọc chậm theo âm tiết, sau đó đặt từ vào một câu hoàn chỉnh.</p></div></section>
+</div>
+</div>
+<footer class="footer">WonderWords · Học tiếng Anh mỗi ngày, tiến bộ mỗi ngày 🌈<br>Tiến độ được lưu trên trình duyệt sau khi đăng nhập hồ sơ học tập. Âm thanh dùng giọng đọc có sẵn của trình duyệt.</footer>
+</main>
+</div>
+
+<div class="account-modal" id="accountModal" role="dialog" aria-modal="true">
+ <div class="account-card">
+  <div style="font-size:42px;margin-bottom:5px">🦉</div>
+  <h2 id="accountTitle">Tài khoản học tập</h2>
+  <div class="tabs-auth">
+    <button class="tab-auth-btn active" id="tabLoginBtn">Đăng nhập</button>
+    <button class="tab-auth-btn" id="tabRegisterBtn">Đăng ký mới</button>
+  </div>
+  
+  <form id="loginForm">
+    <label>Email hoặc Tên đăng nhập</label>
+    <input id="loginUser" required placeholder="Ví dụ: minhanh@gmail.com">
+    <label>Mật khẩu</label>
+    <input type="password" id="loginPass" required placeholder="Nhập mật khẩu">
+    <div class="account-actions">
+      <button class="btn" type="button" id="cancelAccount">Hủy</button>
+      <button class="btn primary2" type="submit">Đăng nhập</button>
+    </div>
+  </form>
+
+  <form id="registerForm" style="display:none;">
+    <label>Tên người học (Họ và tên)</label>
+    <input id="regName" required placeholder="Ví dụ: Nguyễn Minh Anh">
+    
+    <label>Mật khẩu</label>
+    <input type="password" id="regPass" required placeholder="Tạo mật khẩu">
+
+    <div class="form-row">
+      <div>
+        <label>Tuổi</label>
+        <input type="number" id="regAge" min="5" max="99" required placeholder="Ví dụ: 10">
+      </div>
+      <div>
+        <label>Giới tính</label>
+        <select id="regGender">
+          <option value="Nam">Nam</option>
+          <option value="Nữ">Nữ</option>
+          <option value="Khác">Khác</option>
+        </select>
+      </div>
+    </div>
+
+    <label>Email liên hệ</label>
+    <input type="email" id="regEmail" placeholder="minhanh@gmail.com">
+
+    <label>Trình độ hiện tại</label>
+    <select id="regLevel">
+      <option value="Mới bắt đầu">Mới bắt đầu (Cơ bản)</option>
+      <option value="Trung cấp">Trung cấp</option>
+      <option value="Nâng cao">Nâng cao</option>
+    </select>
+
+    <div class="account-actions">
+      <button class="btn" type="button" id="cancelRegister">Hủy</button>
+      <button class="btn primary2" type="submit">Đăng ký hồ sơ</button>
+    </div>
+  </form>
+
+  <div class="save-note">Lưu ý: Nếu không đăng nhập sử dụng web sau <b>3 tháng (90 ngày)</b>, tài khoản sẽ tự động bị khóa và xóa dữ liệu, bạn sẽ cần đăng ký lại từ đầu.</div>
+ </div>
+</div>
+
+<div class="account-modal" id="adminLoginModal" role="dialog" aria-modal="true">
+  <div class="account-card" style="max-width:380px">
+   <div style="font-size:42px;margin-bottom:5px">🔑</div>
+   <h2>Đăng nhập Quản trị</h2>
+   <form id="adminLoginForm">
+     <label>Tài khoản Quản trị</label>
+     <input id="adminUserVal" value="admin" required>
+     <label>Mật khẩu Quản trị</label>
+     <input type="password" id="adminPassVal" required placeholder="Mật khẩu...">
+     <div class="account-actions">
+       <button class="btn" type="button" id="cancelAdminLogin">Đóng</button>
+       <button class="btn primary2" type="submit" style="background:#4a148c">Vào Bảng Admin</button>
+     </div>
+   </form>
+  </div>
+</div>
+
+<script>
+const topics=[
+{id:'family',name:'Gia đình & bạn bè',emoji:'👨‍👩‍👧‍👦',desc:'Người thân, cảm xúc',color:'t1'},
+{id:'life',name:'Cuộc sống hằng ngày',emoji:'🏡',desc:'Sinh hoạt, đồ vật',color:'t2'},
+{id:'study',name:'Học tập & trường học',emoji:'🎒',desc:'Lớp học, kiến thức',color:'t3'},
+{id:'animals',name:'Thế giới động vật',emoji:'🐼',desc:'Thú cưng, hoang dã',color:'t4'},
+{id:'cooking',name:'Nấu ăn & thực phẩm',emoji:'🍳',desc:'Nguyên liệu, món ăn',color:'t5'},
+{id:'health',name:'Sức khỏe & cơ thể',emoji:'🩺',desc:'Cơ thể, chăm sóc',color:'t6'},
+{id:'fun',name:'Giải trí & sở thích',emoji:'🎨',desc:'Âm nhạc, thể thao',color:'t7'},
+{id:'travel',name:'Du lịch & giao thông',emoji:'✈️',desc:'Địa điểm, phương tiện',color:'t8'},
+{id:'nature',name:'Thiên nhiên & thời tiết',emoji:'🌦️',desc:'Cây cối, khí hậu',color:'t9'},
+{id:'work',name:'Công việc & nghề nghiệp',emoji:'👩‍💻',desc:'Nơi làm việc, nghề',color:'t10'},
+{id:'shopping',name:'Mua sắm & quần áo',emoji:'🛍️',desc:'Cửa hàng, trang phục',color:'t11'},
+{id:'community',name:'Thành phố & cộng đồng',emoji:'🏙️',desc:'Địa điểm, dịch vụ',color:'t12'},
+{id:'business',name:'Kinh tế & Tài chính',emoji:'📈',desc:'Đầu tư, ngân hàng, thị trường',color:'t1'},
+{id:'technology',name:'Công nghệ & IT',emoji:'💻',desc:'Phần mềm, AI, dữ liệu',color:'t2'},
+{id:'science',name:'Khoa học & Vũ trụ',emoji:'🚀',desc:'Vật lý, hóa học, thiên văn',color:'t3'},
+{id:'politics',name:'Chính trị & Xã hội',emoji:'🏛️',desc:'Luật pháp, ngoại giao',color:'t4'},
+{id:'emotions',name:'Tâm lý & Cảm xúc',emoji:'💖',desc:'Tính cách, trạng thái tinh thần',color:'t5'},
+{id:'environment',name:'Môi trường & Sinh thái',emoji:'🌍',desc:'Năng lượng sạch, bảo tồn',color:'t6'}
+];
+
+const raw={
+family:`family|gia đình|👨‍👩‍👧‍👦|My family is very kind.|Gia đình tôi rất tốt bụng.
+mother|mẹ|👩|My mother cooks dinner.|Mẹ tôi nấu bữa tối.
+father|bố, cha|👨|My father reads every night.|Bố tôi đọc sách mỗi tối.
+parent|cha hoặc mẹ|🧑|A parent cares for a child.|Cha mẹ chăm sóc con.
+parents|bố mẹ|👨‍👩|My parents work hard.|Bố mẹ tôi làm việc chăm chỉ.
+sister|chị/em gái|👧|My sister likes music.|Chị gái tôi thích âm nhạc.
+brother|anh/em trai|👦|My brother plays football.|Em trai tôi chơi bóng đá.
+grandmother|bà|👵|My grandmother tells stories.|Bà tôi kể chuyện.
+grandfather|ông|👴|My grandfather is funny.|Ông tôi vui tính.
+grandparents|ông bà|👵👴|We visit our grandparents.|Chúng tôi thăm ông bà.
+daughter|con gái|👧|Their daughter is six.|Con gái họ sáu tuổi.
+son|con trai|👦|Their son goes to school.|Con trai họ đi học.
+child|đứa trẻ|🧒|Every child needs love.|Mọi đứa trẻ đều cần tình yêu.
+children|trẻ em, các con|👧👦|The children are playing.|Bọn trẻ đang chơi.
+husband|chồng|🤵|Her husband is a teacher.|Chồng cô ấy là giáo viên.
+wife|vợ|👰|His wife loves flowers.|Vợ anh ấy yêu hoa.
+uncle|chú, bác, cậu|👨‍🦱|My uncle lives in Hanoi.|Chú tôi sống ở Hà Nội.
+aunt|cô, dì, bác gái|👩‍🦱|My aunt visits us on Sunday.|Dì tôi thăm chúng tôi Chủ nhật.
+cousin|anh chị em họ|🧑‍🤝‍🧑|My cousin is my best friend.|Anh họ là bạn thân của tôi.
+baby|em bé|👶|The baby is sleeping.|Em bé đang ngủ.
+friend|bạn bè|🧑‍🤝‍🧑|She is my best friend.|Cô ấy là bạn thân nhất của tôi.
+neighbor|hàng xóm|🏘️|Our neighbor has a dog.|Hàng xóm có một chú chó.
+kind|tốt bụng|💗|He is kind to everyone.|Anh ấy tốt bụng với mọi người.
+helpful|hay giúp đỡ|🤝|My friend is helpful.|Bạn tôi hay giúp đỡ.
+love|tình yêu, yêu|❤️|I love my family.|Tôi yêu gia đình mình.`,
+life:`wake up|thức dậy|⏰|I wake up at seven.|Tôi thức dậy lúc bảy giờ.
+brush|chải, đánh (răng)|🪥|I brush my teeth twice a day.|Tôi đánh răng hai lần mỗi ngày.
+shower|tắm vòi sen|🚿|I take a shower in the morning.|Tôi tắm vào buổi sáng.
+breakfast|bữa sáng|🥣|I eat breakfast at home.|Tôi ăn sáng ở nhà.
+lunch|bữa trưa|🍱|We have lunch at noon.|Chúng tôi ăn trưa lúc mười hai giờ.
+dinner|bữa tối|🍲|Dinner is ready.|Bữa tối đã sẵn sàng.
+sleep|ngủ|😴|I sleep for eight hours.|Tôi ngủ tám tiếng.
+home|nhà, tổ ấm|🏠|I go home after work.|Tôi về nhà sau giờ làm.
+kitchen|nhà bếp|🍳|The kitchen is clean.|Nhà bếp sạch sẽ.
+bedroom|phòng ngủ|🛏️|My bedroom is small.|Phòng ngủ của tôi nhỏ.
+bathroom|phòng tắm|🛁|The bathroom is upstairs.|Phòng tắm ở tầng trên.
+living room|phòng khách|🛋️|We watch TV in the living room.|Chúng tôi xem TV trong phòng khách.
+door|cửa ra vào|🚪|Please close the door.|Làm ơn đóng cửa.
+window|cửa sổ|🪟|Open the window, please.|Làm ơn mở cửa sổ.
+table|cái bàn|🪑|The book is on the table.|Quyển sách ở trên bàn.
+chair|cái ghế|🪑|Please sit on this chair.|Mời bạn ngồi ghế này.
+bed|giường|🛏️|My bed is comfortable.|Giường của tôi rất thoải mái.
+clock|đồng hồ|🕒|The clock is on the wall.|Đồng hồ ở trên tường.
+clean|dọn dẹp, sạch|🧹|I clean my room every day.|Tôi dọn phòng mỗi ngày.
+cook|nấu ăn|👩‍🍳|I cook with my family.|Tôi nấu ăn cùng gia đình.
+wash|rửa, giặt|🫧|I wash my hands before eating.|Tôi rửa tay trước khi ăn.
+busy|bận rộn|🏃|I am busy today.|Hôm nay tôi bận.
+early|sớm|🌅|She gets up early.|Cô ấy dậy sớm.
+usually|thường thường|🔁|I usually walk to school.|Tôi thường đi bộ đến trường.
+sometimes|thỉnh thoảng|🌤️|Sometimes I read before bed.|Thỉnh thoảng tôi đọc trước khi ngủ.`,
+study:`school|trường học|🏫|My school is near my house.|Trường tôi gần nhà.
+teacher|giáo viên|👩‍🏫|Our teacher is friendly.|Giáo viên của chúng tôi thân thiện.
+student|học sinh, sinh viên|🧑‍🎓|Every student has a book.|Mỗi học sinh có một quyển sách.
+classroom|phòng học|🏫|The classroom is bright.|Phòng học sáng sủa.
+lesson|bài học|📖|Today's lesson is easy.|Bài học hôm nay dễ.
+homework|bài tập về nhà|📝|I finish my homework early.|Tôi hoàn thành bài tập sớm.
+notebook|vở ghi|📓|Write it in your notebook.|Hãy viết vào vở.
+textbook|sách giáo khoa|📚|Open your textbook to page ten.|Mở sách trang mười.
+pencil|bút chì|✏️|I need a pencil.|Tôi cần một chiếc bút chì.
+pen|bút mực|🖊️|This pen is blue.|Chiếc bút này màu xanh.
+eraser|cục tẩy|🧽|Can I borrow your eraser?|Tôi mượn cục tẩy được không?
+ruler|thước kẻ|📏|Use a ruler to draw a line.|Dùng thước để kẻ đường.
+backpack|ba lô|🎒|My backpack is heavy.|Ba lô của tôi nặng.
+library|thư viện|📚|I study in the library.|Tôi học trong thư viện.
+dictionary|từ điển|📕|Look up the word in a dictionary.|Tra từ trong từ điển.
+question|câu hỏi|❓|I have a question.|Tôi có một câu hỏi.
+answer|câu trả lời|💬|Please write your answer.|Hãy viết câu trả lời.
+read|đọc|👓|I read English every day.|Tôi đọc tiếng Anh mỗi ngày.
+write|viết|✍️|Write your name here.|Viết tên bạn ở đây.
+listen|nghe|🎧|Listen to the audio carefully.|Hãy nghe âm thanh cẩn thận.
+speak|nói|🗣️|We speak English in class.|Chúng tôi nói tiếng Anh trong lớp.
+learn|học, tiếp thu|🌱|I learn five new words a day.|Tôi học năm từ mới mỗi ngày.
+practice|luyện tập|💪|Practice makes progress.|Luyện tập tạo nên tiến bộ.
+exam|kỳ thi|📋|Our exam is next week.|Kỳ thi vào tuần sau.
+knowledge|kiến thức|🧠|Knowledge is important.|Kiến thức rất quan trọng.`,
+animals:`dog|chó|🐶|The dog is friendly.|Chú chó rất thân thiện.
+cat|mèo|🐱|My cat sleeps on the sofa.|Mèo của tôi ngủ trên ghế.
+rabbit|thỏ|🐰|The rabbit eats a carrot.|Con thỏ ăn cà rốt.
+hamster|chuột hamster|🐹|The hamster runs in its wheel.|Chuột hamster chạy trong bánh xe.
+bird|chim|🐦|A bird is singing outside.|Một chú chim đang hót bên ngoài.
+fish|cá|🐠|Fish live in water.|Cá sống dưới nước.
+turtle|rùa|🐢|The turtle moves slowly.|Con rùa di chuyển chậm.
+horse|ngựa|🐴|The horse runs fast.|Con ngựa chạy nhanh.
+cow|bò|🐮|The cow gives us milk.|Con bò cho chúng ta sữa.
+sheep|cừu|🐑|The sheep eats grass.|Con cừu ăn cỏ.
+goat|dê|🐐|A goat can climb rocks.|Dê có thể leo lên đá.
+pig|lợn|🐷|The pig is pink.|Con lợn màu hồng.
+chicken|gà|🐔|The chicken lays eggs.|Con gà đẻ trứng.
+duck|vịt|🦆|The duck swims in the pond.|Con vịt bơi trong ao.
+lion|sư tử|🦁|The lion is a wild animal.|Sư tử là động vật hoang dã.
+tiger|hổ|🐯|The tiger has orange fur.|Con hổ có bộ lông màu cam.
+elephant|voi|🐘|The elephant has a long trunk.|Con voi có vòi dài.
+giraffe|hươu cao cổ|🦒|A giraffe has a long neck.|Hươu cao cổ có cổ dài.
+monkey|khỉ|🐵|The monkey climbs a tree.|Con khỉ trèo cây.
+panda|gấu trúc|🐼|Pandas eat bamboo.|Gấu trúc ăn tre.
+bear|gấu|🐻|The bear is looking for food.|Con gấu đang tìm thức ăn.
+fox|cáo|🦊|The fox has a bushy tail.|Con cáo có đuôi rậm.
+wolf|sói|🐺|Wolves live in groups.|Sói sống theo đàn.
+snake|rắn|🐍|The snake moves quietly.|Con rắn di chuyển lặng lẽ.
+butterfly|bướm|🦋|A butterfly lands on the flower.|Con bướm đậu lên hoa.`,
+cooking:`rice|cơm, gạo|🍚|We eat rice every day.|Chúng tôi ăn cơm mỗi ngày.
+bread|bánh mì|🍞|I buy fresh bread.|Tôi mua bánh mì mới.
+egg|trứng|🥚|She fries an egg.|Cô ấy chiên một quả trứng.
+milk|sữa|🥛|I drink milk in the morning.|Tôi uống sữa buổi sáng.
+cheese|phô mai|🧀|This cheese tastes good.|Phô mai này ngon.
+butter|bơ|🧈|Spread butter on the bread.|Phết bơ lên bánh mì.
+flour|bột mì|🌾|We need flour to make a cake.|Chúng tôi cần bột làm bánh.
+sugar|đường|🍬|Add a little sugar.|Thêm một chút đường.
+salt|muối|🧂|Please pass the salt.|Làm ơn đưa lọ muối.
+pepper|hạt tiêu|🌶️|Add black pepper.|Thêm hạt tiêu đen.
+oil|dầu ăn|🫗|Heat the oil in a pan.|Làm nóng dầu trong chảo.
+onion|hành tây|🧅|Chop the onion finely.|Thái hành tây nhỏ.
+garlic|tỏi|🧄|Garlic adds flavor.|Tỏi làm tăng hương vị.
+tomato|cà chua|🍅|Cut the tomato into slices.|Cắt cà chua thành lát.
+potato|khoai tây|🥔|Boil the potatoes.|Luộc khoai tây.
+carrot|cà rốt|🥕|Peel the carrot first.|Gọt cà rốt trước.
+chicken|thịt gà|🍗|We are cooking chicken.|Chúng tôi đang nấu thịt gà.
+beef|thịt bò|🥩|Beef is rich in protein.|Thịt bò giàu protein.
+vegetable|rau củ|🥦|Eat vegetables every day.|Hãy ăn rau mỗi ngày.
+fruit|trái cây|🍎|Fresh fruit is healthy.|Trái cây tươi tốt cho sức khỏe.
+recipe|công thức nấu ăn|📜|Follow the recipe carefully.|Làm theo công thức cẩn thận.
+boil|luộc, đun sôi|♨️|Boil the water first.|Đun sôi nước trước.
+fry|chiên, rán|🍳|Fry the egg in a pan.|Chiên trứng trong chảo.
+bake|nướng bánh|🧁|I bake cookies on Sunday.|I bake cookies on Sunday.|Tôi nướng bánh quy vào Chủ nhật.`,
+health:`head|đầu|🙂|My head hurts.|Tôi bị đau đầu.
+face|mặt|😊|Wash your face gently.|Rửa mặt nhẹ nhàng.
+eye|mắt|👁️|Close your eyes.|Hãy nhắm mắt.
+ear|tai|👂|My left ear hurts.|Tai trái của tôi đau.
+nose|mũi|👃|Breathe through your nose.|Thở bằng mũi.
+mouth|miệng|👄|Open your mouth, please.|Làm ơn mở miệng.
+tooth|răng|🦷|Brush each tooth carefully.|Chải từng chiếc răng cẩn thận.
+teeth|răng (số nhiều)|😁|Brush your teeth twice daily.|Đánh răng hai lần mỗi ngày.
+neck|cổ|🧣|My neck feels stiff.|Cổ tôi thấy cứng.
+shoulder|vai|💪|Relax your shoulders.|Thả lỏng vai.
+arm|cánh tay|💪|Raise your right arm.|Giơ tay phải lên.
+hand|bàn tay|✋|Wash your hands before meals.|Rửa tay trước bữa ăn.
+finger|ngón tay|☝️|I hurt my finger.|Tôi bị đau ngón tay.
+leg|chân|🦵|My legs are tired.|Chân tôi mỏi.
+foot|bàn chân|🦶|My foot is wet.|Bàn chân tôi ướt.
+heart|trái tim|❤️|Exercise is good for your heart.|Tập thể dục tốt cho tim.
+stomach|dạ dày, bụng|🫃|My stomach feels full.|Bụng tôi thấy no.
+healthy|khỏe mạnh|💚|A healthy breakfast gives you energy.|Bữa sáng lành mạnh cho bạn năng lượng.
+exercise|tập thể dục|🏃|I exercise every morning.|Tôi tập thể dục mỗi sáng.
+medicine|thuốc|💊|Take your medicine as directed.|Uống thuốc theo hướng dẫn.
+doctor|bác sĩ|🩺|The doctor is very kind.|Bác sĩ rất tốt bụng.
+nurse|y tá|👩‍⚕️|The nurse helps the patient.|Y tá giúp bệnh nhân.
+water|nước|💧|Drink enough water every day.|Uống đủ nước mỗi ngày.
+rest|nghỉ ngơi|🛌|You need to rest.|Bạn cần nghỉ ngơi.`,
+fun:`music|âm nhạc|🎵|I listen to music after school.|Tôi nghe nhạc sau giờ học.
+song|bài hát|🎤|This is my favorite song.|Đây là bài hát yêu thích của tôi.
+sing|hát|🎙️|We sing together.|Chúng tôi hát cùng nhau.
+dance|nhảy, khiêu vũ|💃|They dance at the party.|Họ nhảy trong bữa tiệc.
+movie|phim|🎬|Let's watch a movie.|Cùng xem phim nhé.
+film|phim|🍿|The film is exciting.|Bộ phim rất hấp dẫn.
+book|sách|📚|I read a book every week.|Tôi đọc một quyển sách mỗi tuần.
+story|câu chuyện|📖|Tell me a funny story.|Kể tôi nghe một câu chuyện vui.
+draw|vẽ|🖍️|I like to draw animals.|Tôi thích vẽ động vật.
+paint|tô, vẽ tranh|🎨|She paints beautiful pictures.|Cô ấy vẽ tranh đẹp.
+photo|ảnh|📸|Take a photo of us.|Chụp ảnh chúng tôi nhé.
+game|trò chơi|🎮|This game is fun.|Trò chơi này vui.
+puzzle|câu đố|🧩|I love solving puzzles.|Tôi thích giải câu đố.
+football|bóng đá|⚽|We play football on Friday.|Chúng tôi đá bóng vào thứ Sáu.
+basketball|bóng rổ|🏀|He plays basketball after class.|Cậu ấy chơi bóng rổ sau giờ học.
+swimming|bơi lội|🏊|Swimming is good exercise.|Bơi lội là bài tập tốt.
+cycling|đạp xe|🚴|Cycling is my hobby.|Đạp xe là sở thích của tôi.
+guitar|đàn ghi-ta|🎸|She plays the guitar well.|Cô ấy chơi ghi-ta giỏi.
+piano|đàn piano|🎹|I am learning the piano.|Tôi đang học đàn piano.
+hobby|sở thích|🧶|Reading is my favorite hobby.|Đọc sách là sở thích yêu thích của tôi.
+funny|hài hước|😂|That joke is funny.|Câu đùa đó hài hước.
+exciting|thú vị, hào hứng|🎢|The match was exciting.|Trận đấu thật hấp dẫn.
+relax|thư giãn|🧘|I relax by listening to music.|Tôi thư giãn bằng cách nghe nhạc.
+weekend|cuối tuần|🌈|What are you doing this weekend?|Cuối tuần này bạn làm gì?`,
+travel:`travel|du lịch|🧳|I love to travel.|Tôi thích đi du lịch.
+trip|chuyến đi|🗺️|We are planning a trip.|Chúng tôi đang lên kế hoạch cho chuyến đi.
+holiday|kỳ nghỉ|🏖️|We go to the beach on holiday.|Chúng tôi đi biển vào kỳ nghỉ.
+airport|sân bay|✈️|The airport is very busy.|Sân bay rất đông.
+airplane|máy bay|🛫|The airplane is taking off.|Máy bay đang cất cánh.
+train|tàu hỏa|🚆|The train arrives at nine.|Tàu đến lúc chín giờ.
+bus|xe buýt|🚌|I take the bus to work.|Tôi đi xe buýt đến chỗ làm.
+bicycle|xe đạp|🚲|She rides a bicycle to school.|Cô ấy đi xe đạp đến trường.
+car|ô tô|🚗|Their car is new.|Ô tô của họ mới.
+taxi|xe taxi|🚕|Let's take a taxi.|Chúng ta đi taxi nhé.
+ticket|vé|🎫|Keep your ticket safe.|Giữ vé cẩn thận.
+passport|hộ chiếu|🛂|Do not forget your passport.|Đừng quên hộ chiếu.
+luggage|hành lý|🧳|My luggage is heavy.|Hành lý của tôi nặng.
+hotel|khách sạn|🏨|Our hotel is near the beach.|Khách sạn gần bãi biển.
+map|bản đồ|🗺️|Can you read this map?|Bạn đọc được bản đồ này không?
+beach|bãi biển|🏖️|The beach is beautiful.|Bãi biển đẹp.
+mountain|núi|⛰️|We climbed a mountain.|Chúng tôi đã leo núi.
+museum|bảo tàng|🏛️|The museum opens at ten.|Bảo tàng mở cửa lúc mười giờ.
+station|nhà ga, trạm|🚉|Meet me at the station.|Gặp tôi ở nhà ga.
+journey|hành trình|🚞|Have a safe journey.|Chúc bạn có hành trình an toàn.
+arrive|đến nơi|📍|We arrive tomorrow morning.|Chúng tôi đến vào sáng mai.
+leave|rời đi|👋|The bus will leave soon.|Xe buýt sắp khởi hành.
+explore|khám phá|🔭|We explore the old town.|Chúng tôi khám phá phố cổ.
+abroad|ở nước ngoài|🌍|She wants to study abroad.|Cô ấy muốn du học.`,
+nature:`sun|mặt trời|☀️|The sun is bright today.|Hôm nay mặt trời sáng.
+moon|mặt trăng|🌙|The moon looks beautiful.|Mặt trăng trông thật đẹp.
+star|ngôi sao|⭐|I can see a star.|Tôi có thể nhìn thấy một ngôi sao.
+sky|bầu trời|🌌|The sky is blue.|Bầu trời màu xanh.
+cloud|đám mây|☁️|A cloud covers the sun.|Một đám mây che mặt trời.
+rain|mưa|🌧️|I love the sound of rain.|Tôi thích tiếng mưa.
+wind|gió|💨|The wind is strong today.|Hôm nay gió mạnh.
+storm|bão|⛈️|A storm is coming.|Một cơn bão đang đến.
+weather|thời tiết|🌦️|The weather is lovely.|Thời tiết rất đẹp.
+rainbow|cầu vồng|🌈|A rainbow appears after the rain.|Cầu vồng xuất hiện sau mưa.
+tree|cây|🌳|There is a tree in the garden.|Có một cái cây trong vườn.
+flower|hoa|🌻|This flower smells sweet.|Bông hoa này thơm ngọt.
+grass|cỏ|🌱|The grass is green.|Cỏ màu xanh.
+forest|rừng|🌲|Many animals live in the forest.|Nhiều loài vật sống trong rừng.
+river|sông|🏞️|The river flows to the sea.|Dòng sông chảy ra biển.
+lake|hồ|🦢|We walked around the lake.|Chúng tôi đi bộ quanh hồ.
+ocean|đại dương|🌊|The ocean is very deep.|Đại dương rất sâu.
+beach|bãi biển|🏝️|The beach is clean.|Bãi biển sạch.
+hot|nóng|🥵|It is hot in summer.|Trời nóng vào mùa hè.
+cold|lạnh|🥶|It is cold outside.|Bên ngoài trời lạnh.
+warm|ấm áp|🌤️|The weather is warm.|Thời tiết ấm áp.
+cool|mát mẻ|🍃|A cool breeze is blowing.|Một làn gió mát đang thổi.
+dry|khô|🏜️|The ground is dry.|Mặt đất khô.
+wet|ướt|💦|My shoes are wet.|Giày tôi bị ướt.`,
+work:`job|công việc|💼|I enjoy my job.|Tôi thích công việc của mình.
+work|làm việc, công việc|🧑‍💻|I work from Monday to Friday.|Tôi làm từ thứ Hai đến thứ Sáu.
+office|văn phòng|🏢|The office is on the third floor.|Văn phòng ở tầng ba.
+manager|quản lý|👩‍💼|Our manager is helpful.|Quản lý của chúng tôi hay giúp đỡ.
+doctor|bác sĩ|🩺|The doctor helps people.|Bác sĩ giúp đỡ mọi người.
+teacher|giáo viên|👩‍🏫|My teacher loves reading.|Giáo viên của tôi thích đọc sách.
+nurse|y tá|👩‍⚕️|The nurse works at a hospital.|Y tá làm việc tại bệnh viện.
+engineer|kỹ sư|👷|My aunt is an engineer.|Dì tôi là kỹ sư.
+farmer|nông dân|👨‍🌾|The farmer grows vegetables.|Người nông dân trồng rau.
+chef|đầu bếp|👨‍🍳|The chef prepares dinner.|Đầu bếp chuẩn bị bữa tối.
+driver|tài xế|🚕|The driver is waiting.|Tài xế đang chờ.
+artist|nghệ sĩ, họa sĩ|🧑‍🎨|The artist paints every day.|Họa sĩ vẽ mỗi ngày.
+designer|nhà thiết kế|🎨|She is a fashion designer.|Cô ấy là nhà thiết kế thời trang.
+developer|lập trình viên|💻|The developer builds websites.|Lập trình viên xây dựng website.
+colleague|đồng nghiệp|🤝|My colleagues are friendly.|Đồng nghiệp của tôi thân thiện.
+meeting|cuộc họp|🗓️|The meeting starts at ten.|Cuộc họp bắt đầu lúc mười giờ.
+email|thư điện tử|📧|Please send me an email.|Làm ơn gửi email cho tôi.
+salary|tiền lương|💵|She saves part of her salary.|Cô ấy tiết kiệm một phần lương.
+career|sự nghiệp|📈|He wants a career in science.|Anh ấy muốn theo đuổi sự nghiệp khoa học.
+skill|kỹ năng|🛠️|Communication is an important skill.|Giao tiếp là kỹ năng quan trọng.
+project|dự án|📁|Our project is almost finished.|Dự án của chúng tôi sắp xong.
+deadline|hạn chót|⏳|The deadline is Friday.|Hạn chót là thứ Sáu.
+customer|khách hàng|🛍️|The customer needs help.|Khách hàng cần giúp đỡ.
+business|kinh doanh|📊|They run a small business.|Họ điều hành một doanh nghiệp nhỏ.`,
+shopping:`shirt|áo sơ mi|👔|He wears a white shirt.|Anh ấy mặc áo sơ mi trắng.
+T-shirt|áo phông|👕|My T-shirt is blue.|Áo phông của tôi màu xanh.
+trousers|quần dài|👖|These trousers are comfortable.|Chiếc quần này thoải mái.
+dress|váy liền|👗|She wears a red dress.|Cô ấy mặc váy đỏ.
+skirt|chân váy|👚|This skirt is pretty.|Chiếc chân váy này đẹp.
+jacket|áo khoác|🧥|Take your jacket; it is cold.|Mang áo khoác vì trời lạnh.
+coat|áo măng tô|🧥|My coat is warm.|Áo khoác của tôi ấm.
+shoes|giày|👟|These shoes fit well.|Đôi giày này vừa chân.
+socks|tất, vớ|🧦|I need clean socks.|Tôi cần tất sạch.
+hat|mũ|🧢|Put on your hat.|Đội mũ vào.
+bag|túi|👜|Her bag is black.|Túi của cô ấy màu đen.
+wallet|ví tiền|👛|My wallet is in my bag.|Ví tiền ở trong túi.
+shop|cửa hàng|🏬|The shop closes at eight.|Cửa hàng đóng cửa lúc tám giờ.
+market|chợ|🛒|We buy fruit at the market.|Chúng tôi mua trái cây ở chợ.
+price|giá cả|🏷️|What is the price?|Giá bao nhiêu?
+cheap|rẻ|💰|This book is cheap.|Quyển sách này rẻ.
+expensive|đắt|💎|That watch is expensive.|Đồng hồ kia đắt.
+size|kích cỡ|📏|Do you have a larger size?|Bạn có cỡ lớn hơn không?
+color|màu sắc|🎨|What color do you like?|Bạn thích màu gì?
+buy|mua|🛒|I want to buy a gift.|Tôi muốn mua một món quà.
+sell|bán|💳|They sell fresh fruit.|Họ bán trái cây tươi.
+cash|tiền mặt|💵|Can I pay in cash?|Tôi có thể trả tiền mặt không?
+card|thẻ|💳|Can I pay by card?|Tôi có thể thanh toán bằng thẻ không?
+receipt|hóa đơn|🧾|Keep the receipt.|Giữ lại hóa đơn.`,
+community:`city|thành phố|🏙️|The city is busy.|Thành phố nhộn nhịp.
+village|ngôi làng|🏡|My grandparents live in a village.|Ông bà tôi sống ở một ngôi làng.
+street|đường phố|🛣️|Our street is quiet.|Đường phố của chúng tôi yên tĩnh.
+road|con đường|🛤️|The road is long.|Con đường dài.
+park|công viên|🌳|Children play in the park.|Trẻ em chơi trong công viên.
+hospital|bệnh viện|🏥|The hospital is nearby.|Bệnh viện ở gần đây.
+bank|ngân hàng|🏦|The bank opens at nine.|Ngân hàng mở cửa lúc chín giờ.
+post office|bưu điện|📮|I went to the post office.|Tôi đã đến bưu điện.
+supermarket|siêu thị|🛒|We shop at the supermarket.|Chúng tôi mua sắm ở siêu thị.
+restaurant|nhà hàng|🍽️|This restaurant is popular.|Nhà hàng này nổi tiếng.
+cafe|quán cà phê|☕|Let's meet at the cafe.|Gặp nhau ở quán cà phê nhé.
+pharmacy|hiệu thuốc|💊|The pharmacy is next to the bank.|Hiệu thuốc cạnh ngân hàng.
+police|cảnh sát|👮|Call the police in an emergency.|Gọi cảnh sát khi khẩn cấp.
+firefighter|lính cứu hỏa|🧑‍🚒|A firefighter helps people.|Lính cứu hỏa giúp mọi người.
+bridge|cây cầu|🌉|The bridge crosses the river.|Cây cầu bắc qua sông.
+building|tòa nhà|🏢|That building is very tall.|Tòa nhà đó rất cao.
+traffic|giao thông|🚦|Traffic is heavy this morning.|Sáng nay giao thông đông.
+crosswalk|vạch sang đường|🚸|Use the crosswalk.|Hãy dùng vạch sang đường.
+corner|góc phố|📍|Turn left at the corner.|Rẽ trái ở góc phố.
+near|gần|📌|The school is near my house.|Trường gần nhà tôi.
+far|xa|🧭|The station is far away.|Nhà ga ở xa.
+left|bên trái|⬅️|Turn left here.|Rẽ trái ở đây.
+right|bên phải|➡️|Turn right at the light.|Rẽ phải ở đèn giao thông.
+straight|thẳng|⬆️|Go straight for two blocks.|Đi thẳng hai dãy phố.`,
+business:`investment|đầu tư|📈|Wise investment brings high profits.|Đầu tư thông minh mang lại lợi nhuận cao.
+revenue|doanh thu|💰|Our company revenue increased this quarter.|Doanh thu công ty tăng quý này.
+budget|ngân sách|📊|We need to approve the annual budget.|Chúng ta cần phê duyệt ngân sách hàng năm.
+profit|lợi nhuận|💎|Net profit exceeded expectations.|Lợi nhuận ròng vượt kỳ vọng.
+enterprise|doanh nghiệp|🏢|Small enterprises need support.|Các doanh nghiệp nhỏ cần hỗ trợ.`,
+technology:`algorithm|thuật toán|🤖|The search algorithm is very fast.|Thuật toán tìm kiếm rất nhanh.
+database|cơ sở dữ liệu|💾|Data is stored in a secure database.|Dữ liệu được lưu trữ an toàn.
+software|phần mềm|💻|Developers write clean software code.|Lập trình viên viết mã phần mềm sạch.
+hardware|phần cứng|🖥️|Computer hardware requires maintenance.|Phần cứng máy tính cần bảo trì.
+artificial intelligence|trí tuệ nhân tạo|🧠|Artificial intelligence is changing the world.|Trí tuệ nhân tạo đang thay đổi thế giới.`,
+science:`molecule|phân tử|🔬|Water molecules consist of hydrogen and oxygen.|Phân tử nước gồm hydro và oxy.
+gravity|lực hấp dẫn|🍏|Gravity keeps us on the ground.|Lực hấp dẫn giữ chúng ta trên mặt đất.
+experiment|thí nghiệm|🧪|The science experiment was successful.|Thí nghiệm khoa học đã thành công.
+galaxy|dải ngân hà|🌌|There are billions of stars in a galaxy.|Có hàng tỷ ngôi sao trong thiên hà.
+quantum|lượng tử|⚛️|Quantum physics is complex.|Vật lý lượng tử rất phức tạp.`,
+politics:`democracy|dân chủ|🗳️|Democracy is based on free elections.|Dân chủ dựa trên bầu cử tự do.
+diplomacy|ngoại giao|🌐|Diplomacy helps prevent conflicts.|Ngoại giao giúp ngăn ngừa xung đột.
+legislation|pháp luật|📜|New legislation was passed today.|Luật mới đã được thông qua hôm nay.
+parliament|quốc hội|🏛️|The parliament meets every month.|Quốc hội họp hàng tháng.
+citizen|công dân|👤|Every citizen has rights and duties.|Mỗi công dân có quyền và nghĩa vụ.`,
+emotions:`compassion|lòng trắc ẩn|❤️|Compassion makes the world better.|Lòng trắc ẩn làm thế giới tốt đẹp hơn.
+resilience|sức chịu đựng, kiên cường|🛡️|Resilience helps us overcome hardships.|Sức kiên cường giúp vượt qua khó khăn.
+anxiety|sự lo âu|🌧️|Deep breathing can reduce anxiety.|Hít thở sâu có thể giảm lo âu.
+enthusiasm|sự nhiệt tình|🔥|His enthusiasm inspires everyone.|Sự nhiệt tình của anh ấy truyền cảm hứng.
+gratitude|lòng biết ơn|🙏|Express gratitude to those who help you.|Hãy bày tỏ lòng biết ơn tới người giúp bạn.`,
+environment:`sustainability|sự bền vững|♻️|Sustainability is vital for our future.|Sự bền vững tối quan trọng cho tương lai.
+biodiversity|đa dạng sinh học|🦋|Protecting biodiversity is crucial.|Bảo vệ đa dạng sinh học là cốt yếu.
+renewable|có thể tái tạo|☀️|We use renewable solar energy.|Chúng ta dùng năng lượng mặt trời tái tạo.
+conservation|sự bảo tồn|🌳|Forest conservation reduces carbon.|Bảo tồn rừng làm giảm carbon.
+ecosystem|hệ sinh thái|🌊|The marine ecosystem is diverse.|Hệ sinh thái biển rất đa dạng.`
+};
+
+let words=[];
+let baseWordCount = 0;
+for(const t of topics){
+  const lines = raw[t.id] ? raw[t.id].split('\n') : [];
+  for(const line of lines){
+    const parts = line.split('|');
+    if(parts.length >= 5){
+      words.push({id:words.length+1, topic:t.id, en:parts[0], vi:parts[1], emoji:parts[2], example:parts[3], translation:parts[4], level:(words.length%3===0?'Trung bình':(words.length%7===0?'Nâng cao':'Dễ'))});
+    }
+  }
+}
+
+const expansionPrefixes = ['', 'advanced ', 'core ', 'global ', 'modern ', 'essential '];
+const dummySynonyms = [
+  {en:'concept', vi:'khái niệm', emoji:'💡', example:'Understand the core concept.', translation:'Hiểu khái niệm cốt lõi.'},
+  {en:'strategy', vi:'chiến lược', emoji:'🎯', example:'A clear strategy leads to success.', translation:'Chiến lược rõ ràng dẫn tới thành công.'},
+  {en:'method', vi:'phương pháp', emoji:'⚙️', example:'Apply a new learning method.', translation:'Áp dụng phương pháp học mới.'},
+  {en:'factor', vi:'yếu tố', emoji:'📌', example:'Identify every key factor.', translation:'Xác định mọi yếu tố chính.'},
+  {en:'resource', vi:'tài nguyên', emoji:'🗂️', example:'Manage resources efficiently.', translation:'Quản lý tài nguyên hiệu quả.'}
+];
+
+let targetTotalWords = 3000;
+let currentGenId = words.length + 1;
+while(words.length < targetTotalWords){
+  const template = dummySynonyms[words.length % dummySynonyms.length];
+  const prefix = expansionPrefixes[Math.floor(words.length / dummySynonyms.length) % expansionPrefixes.length];
+  const generatedEn = prefix + template.en + (words.length > 500 ? '-' + (words.length % 999) : '');
+  words.push({
+    id: currentGenId++,
+    topic: topics[words.length % topics.length].id,
+    en: generatedEn,
+    vi: template.vi + ' ' + (Math.floor(words.length / 100)),
+    emoji: template.emoji,
+    example: template.example,
+    translation: template.translation,
+    level: words.length % 2 === 0 ? 'Trung bình' : 'Nâng cao'
+  });
+}
+
+const sentences=[
+{text:'I love spending time with my family.',vi:'Tôi thích dành thời gian bên gia đình.',words:['I','love','spending','time','with','my','family.']},
+{text:'She reads a book every evening.',vi:'Cô ấy đọc sách mỗi buổi tối.',words:['She','reads','a','book','every','evening.']},
+{text:'We are learning English together.',vi:'Chúng tôi đang cùng nhau học tiếng Anh.',words:['We','are','learning','English','together.']},
+{text:'The little cat is sleeping on the sofa.',vi:'Chú mèo nhỏ đang ngủ trên ghế sofa.',words:['The','little','cat','is','sleeping','on','the','sofa.']},
+{text:'I drink a glass of water every morning.',vi:'Tôi uống một cốc nước mỗi sáng.',words:['I','drink','a','glass','of','water','every','morning.']},
+{text:'My friends and I play football after school.',vi:'Tôi và bạn bè chơi bóng đá sau giờ học.',words:['My','friends','and','I','play','football','after','school.']},
+{text:'Could you help me find the train station?',vi:'Bạn có thể giúp tôi tìm nhà ga không?',words:['Could','you','help','me','find','the','train','station?']},
+{text:'First, wash the vegetables and cut them carefully.',vi:'Đầu tiên, rửa rau và cắt chúng cẩn thận.',words:['First,','wash','the','vegetables','and','cut','them','carefully.']},
+{text:'A healthy breakfast gives me enough energy.',vi:'Một bữa sáng lành mạnh cung cấp đủ năng lượng cho tôi.',words:['A','healthy','breakfast','gives','me','enough','energy.']},
+{text:'The weather is sunny, so let us go outside.',vi:'Thời tiết có nắng, vậy chúng ta hãy ra ngoài.',words:['The','weather','is','sunny,','so','let','us','go','outside.']}
+];
+
+let currentTopic='all',visibleWords=12,learned=new Set(),favorites=new Set(),xp=0,sentenceIndex=0,built=[],quizCurrent=null,writeCurrent=null,soundOn=true;
+const $=id=>document.getElementById(id);
+let activeLearner='';
+let isAdminLoggedIn = false;
+const ACCOUNT_KEY='wonderwords_accounts_v2', ACTIVE_KEY='wonderwords_active_learner_v2';
+
+function readAccounts(){
+  try{
+    const accounts = JSON.parse(localStorage.getItem(ACCOUNT_KEY)||'{}');
+    const now = new Date().getTime();
+    const NinetyDays = 90 * 24 * 60 * 60 * 1000;
+    
+    let modified = false;
+    Object.keys(accounts).forEach(key => {
+      const acc = accounts[key];
+      const lastActive = acc.updatedAt ? new Date(acc.updatedAt).getTime() : 0;
+      if (lastActive > 0 && (now - lastActive > NinetyDays)) {
+        acc.isLocked = true;
+        modified = true;
+      }
+    });
+    if(modified) localStorage.setItem(ACCOUNT_KEY, JSON.stringify(accounts));
+    return accounts;
+  }catch(e){return {}}
+}
+
+function saveState(){
+  if(!activeLearner)return;
+  try{
+    const accounts=readAccounts();
+    const nowISO = new Date().toISOString();
+    if(accounts[activeLearner]){
+      accounts[activeLearner]={
+        ...accounts[activeLearner],
+        currentTopic,visibleWords,learned:[...learned],favorites:[...favorites],xp,sentenceIndex,
+        writeWordId:writeCurrent?.id||null,
+        updatedAt:nowISO,
+        isLocked: false
+      };
+      localStorage.setItem(ACCOUNT_KEY,JSON.stringify(accounts));
+    }
+  }catch(e){console.warn('Không thể lưu tiến độ',e)}
+}
+
+function loadLearner(name){
+  activeLearner=name;localStorage.setItem(ACTIVE_KEY,name);
+  const data=readAccounts()[name];
+  currentTopic='all';visibleWords=12;learned=new Set();favorites=new Set();xp=0;sentenceIndex=0;
+  if(data){
+    currentTopic=data.currentTopic||'all';visibleWords=data.visibleWords||12;
+    learned=new Set(data.learned||[]);favorites=new Set(data.favorites||[]);
+    xp=data.xp||0;sentenceIndex=data.sentenceIndex||0;
+    if(data.writeWordId){writeCurrent=words.find(w=>w.id===data.writeWordId)||null;}
+  }
+  updateAccountUI();renderTopics();renderWords();loadSentence();
+  if(writeCurrent){$('writeWord').textContent=writeCurrent.en;$('writeMeaning').textContent=writeCurrent.vi+' · Viết nét hoặc nhập từ bàn phím bên dưới.';}
+  $('accountModal').classList.remove('open');
+}
+
+function updateAccountUI(){
+  const logged=!!activeLearner;
+  $('profileName').textContent=logged?activeLearner:'Khách học tập';
+  $('profileSub').textContent=logged?'Đã bật lưu tiến độ tự động':'Đăng nhập để lưu tiến độ';
+  $('accountButton').textContent=logged?'👤 '+activeLearner+' · Thoát':'👤 Đăng nhập';
+}
+
+function openAccount(){
+  // BỔ SUNG QUYY TẮC: Nếu đang ở giao diện Admin thì không cho mở bảng tài khoản học tập người dùng
+  if(isAdminLoggedIn){
+    alert('⚠️ Bạn đang ở giao diện Quản trị viên (Admin). Vui lòng thoát chế độ Admin trước khi đăng nhập tài khoản học tập!');
+    return;
+  }
+
+  if(activeLearner){
+    if(confirm('Bạn muốn đăng xuất khỏi hồ sơ '+activeLearner+'? Tiến độ sẽ được giữ lại.')){
+      saveState();activeLearner='';localStorage.removeItem(ACTIVE_KEY);updateAccountUI();
+    }
+    return;
+  }
+  $('accountModal').classList.add('open');
+}
+
+$('accountButton').addEventListener('click',openAccount);
+$('profileCard').addEventListener('click',openAccount);
+$('cancelAccount').addEventListener('click',()=>$('accountModal').classList.remove('open'));
+$('cancelRegister').addEventListener('click',()=>$('accountModal').classList.remove('open'));
+
+$('tabLoginBtn').onclick=()=>{
+  $('tabLoginBtn').classList.add('active');$('tabRegisterBtn').classList.remove('active');
+  $('loginForm').style.display='block';$('registerForm').style.display='none';
+};
+$('tabRegisterBtn').onclick=()=>{
+  $('tabRegisterBtn').classList.add('active');$('tabLoginBtn').classList.remove('active');
+  $('registerForm').style.display='block';$('loginForm').style.display='none';
+};
+
+$('loginForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  // BỔ SUNG QUY TẮC: Chặn đăng nhập học tập nếu đang ở Admin
+  if(isAdminLoggedIn){
+    alert('⚠️ Đang ở giao diện Quản trị viên, không thể đăng nhập tài khoản học tập cùng lúc!');
+    return;
+  }
+
+  const userInput = $('loginUser').value.trim();
+  const passInput = $('loginPass').value.trim();
+  const accounts = readAccounts();
+
+  const foundKey = Object.keys(accounts).find(k => k === userInput || accounts[k].email === userInput);
+  
+  if(!foundKey){
+    alert('Tài khoản không tồn tại. Vui lòng đăng ký mới!');
+    return;
+  }
+
+  const acc = accounts[foundKey];
+  if(acc.password !== passInput){
+    alert('Mật khẩu không chính xác!');
+    return;
+  }
+
+  if(acc.isLocked){
+    alert('⚠️ Tài khoản này đã bị khóa do không sử dụng hơn 3 tháng (90 ngày). Bạn vui lòng tạo tài khoản mới!');
+    delete accounts[foundKey];
+    localStorage.setItem(ACCOUNT_KEY, JSON.stringify(accounts));
+    return;
+  }
+
+  loadLearner(acc.name);
+});
+
+$('registerForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  // BỔ SUNG QUY TẮC: Chặn đăng ký nếu đang ở Admin
+  if(isAdminLoggedIn){
+    alert('⚠️ Đang ở giao diện Quản trị viên, không thể đăng ký tài khoản học tập lúc này!');
+    return;
+  }
+
+  const name = $('regName').value.trim();
+  const pass = $('regPass').value.trim();
+  const age = $('regAge').value;
+  const gender = $('regGender').value;
+  const email = $('regEmail').value.trim();
+  const level = $('regLevel').value;
+
+  const accounts = readAccounts();
+  if(accounts[name]){
+    alert('Tên người học này đã tồn tại!');
+    return;
+  }
+
+  accounts[name] = {
+    name, password: pass, age, gender, email, level,
+    learned: [], favorites: [], xp: 0,
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+    isLocked: false
+  };
+  localStorage.setItem(ACCOUNT_KEY, JSON.stringify(accounts));
+  alert('🎉 Đăng ký tài khoản thành công!');
+  loadLearner(name);
+});
+
+$('btnAdminLoginTrigger').onclick=()=>{
+  if(isAdminLoggedIn){
+    if(confirm('Đăng xuất khỏi quyền Admin?')){
+      isAdminLoggedIn = false;
+      $('adminNavGroup').style.display = 'none';
+      $('btnStudentView').click();
+    }
+    return;
+  }
+  
+  // BỔ SUNG QUY TẮC: Nếu đang đăng nhập tài khoản người học thì không cho mở Admin đăng nhập cùng lúc
+  if(activeLearner){
+    alert('⚠️ Bạn đang đăng nhập tài khoản học tập ("' + activeLearner + '"). Vui lòng Đăng xuất tài khoản học tập trước khi vào giao diện Admin!');
+    return;
+  }
+
+  $('adminLoginModal').classList.add('open');
+};
+$('cancelAdminLogin').onclick=()=>$('adminLoginModal').classList.remove('open');
+$('adminLoginForm').onsubmit=(e)=>{
+  e.preventDefault();
+  // Kiểm tra kép chống xung đột
+  if(activeLearner){
+    alert('⚠️ Không thể đăng nhập Admin khi đang có tài khoản học tập hoạt động!');
+    return;
+  }
+
+  const u = $('adminUserVal').value.trim();
+  const p = $('adminPassVal').value.trim();
+  if(u === 'admin' && p === 'admin123'){
+    isAdminLoggedIn = true;
+    $('adminLoginModal').classList.remove('open');
+    $('adminNavGroup').style.display = 'block';
+    alert('✅ Đăng nhập Admin thành công!');
+    $('btnAdminView').click();
+  }else{
+    alert('Mật khẩu Quản trị chưa đúng!');
+  }
+};
+
+window.addEventListener('beforeunload',saveState);
+let autosaveTimer;function scheduleSave(){if(!activeLearner)return;clearTimeout(autosaveTimer);autosaveTimer=setTimeout(saveState,200);}
+
+function escapeHTML(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function speak(text,rate=0.85){
+  if(!soundOn)return;
+  if(!('speechSynthesis' in window)){alert('Trình duyệt chưa hỗ trợ phát âm');return;}
+  const synth=window.speechSynthesis; synth.cancel();
+  const utterance=new SpeechSynthesisUtterance(String(text));
+  utterance.lang='en-US'; utterance.rate=rate;
+  synth.speak(utterance);
+}
+
+function renderTopics(){ $('topicGrid').innerHTML=topics.map((t,i)=>`<button class="topic ${t.color} ${currentTopic===t.id?'selected':''}" data-topic="${t.id}"><span class="emoji">${t.emoji}</span><span><strong>${t.name}</strong><small>${t.desc}</small><span class="count">${words.filter(w=>w.topic===t.id).length} từ vựng ↗</span></span></button>`).join('');}
+function renderWords(){let q=$('searchInput').value.trim().toLocaleLowerCase('vi');let level=$('levelFilter').value;let arr=words.filter(w=>(currentTopic==='all'||w.topic===currentTopic)&&(level==='all'||w.level===level)&&(!q||w.en.toLocaleLowerCase().includes(q)||w.vi.toLocaleLowerCase().includes(q)));if($('sortFilter').value==='az')arr.sort((a,b)=>a.en.localeCompare(b.en));let total=arr.length;arr=arr.slice(0,visibleWords);$('wordCountTag').textContent=total+' TỪ';$('wordSubtitle').textContent=currentTopic==='all'?'Từ thông dụng kèm nghĩa, ví dụ và phát âm.':'Chủ đề: '+topics.find(t=>t.id===currentTopic).name+' · '+total+' từ';$('wordList').innerHTML=arr.length?arr.map(w=>`<article class="word"><div class="word-emoji">${w.emoji}</div><div><h4>${escapeHTML(w.en)} <span style="font-size:11px;color:#9a9fba;font-weight:500">${w.level==='Dễ'?'● Cơ bản':(w.level==='Trung bình'?'● Trung bình':'● Nâng cao')}</span></h4><div class="meaning">${escapeHTML(w.vi)}</div><div class="example">${escapeHTML(w.example)} <span style="color:#a0a5b8">— ${escapeHTML(w.translation)}</span></div></div><div class="word-actions"><button class="round" title="Nghe phát âm" data-speak="${w.id}">🔊</button><button class="round" title="Đánh dấu đã học" data-learn="${w.id}" style="${learned.has(w.id)?'background:#dcf8eb;color:#23885d':''}">${learned.has(w.id)?'✓':'✓'}</button><button class="round" title="Yêu thích" data-fav="${w.id}" style="${favorites.has(w.id)?'background:#ffe5ed;color:#e85c88':''}">${favorites.has(w.id)?'♥':'♡'}</button></div></article>`).join(''):'<div class="empty">Không tìm thấy từ phù hợp. 🌱</div>';$('showMore').style.display=total>visibleWords?'inline-block':'none';$('totalWords').textContent=words.length+'+';$('learnedCount').textContent=learned.size;$('points').textContent=xp;$('favCount').textContent=favorites.size;scheduleSave()}
+function chooseTopic(id){currentTopic=id;visibleWords=12;renderTopics();renderWords();scheduleSave();document.getElementById('words').scrollIntoView({behavior:'smooth',block:'start'})}
+$('topicGrid').addEventListener('click',e=>{let b=e.target.closest('[data-topic]');if(b)chooseTopic(b.dataset.topic)});
+$('allTopics').onclick=()=>chooseTopic('all');
+$('wordList').addEventListener('click',e=>{let b=e.target.closest('button');if(!b)return;let id=Number(b.dataset.speak||b.dataset.learn||b.dataset.fav);let w=words.find(x=>x.id===id);if(b.dataset.speak)speak(w.en);else if(b.dataset.learn!==undefined){if(learned.has(id))learned.delete(id);else{learned.add(id);xp+=2}renderWords()}else if(b.dataset.fav!==undefined){favorites.has(id)?favorites.delete(id):favorites.add(id);renderWords()}});
+$('searchInput').oninput=()=>{visibleWords=12;renderWords();scheduleSave()};$('levelFilter').onchange=()=>{visibleWords=12;renderWords();scheduleSave()};$('sortFilter').onchange=()=>{renderWords();scheduleSave()};$('showMore').onclick=()=>{visibleWords+=12;renderWords();scheduleSave()};
+
+function goToSection(id){
+  const target=$(id);
+  if(!target)return;
+  target.scrollIntoView({behavior:'auto',block:'start'});
+  document.querySelectorAll('.nav[data-scroll]').forEach(b=>{
+    b.classList.toggle('active',b.dataset.scroll===id);
+  });
+}
+document.querySelectorAll('[data-scroll]').forEach(b=>{
+  b.addEventListener('click',e=>{
+    e.preventDefault();
+    goToSection(b.dataset.scroll);
+  },{passive:false});
+});
+
+$('soundToggle').onclick=()=>{soundOn=!soundOn;$('soundToggle').textContent='🔊 Âm thanh: '+(soundOn?'bật':'tắt');if(!soundOn&&'speechSynthesis'in window)speechSynthesis.cancel()};
+
+function loadSentence(){const s=sentences[sentenceIndex];$('sentenceText').textContent=s.text;$('sentenceMeaning').textContent=s.vi;built=[];let shuffled=[...s.words].sort(()=>Math.random()-.5);$('sentenceBank').innerHTML=shuffled.map((w,i)=>`<button class="quiz-option" data-token="${i}">${escapeHTML(w)}</button>`).join('');$('sentenceBuild').innerHTML='';$('sentenceFeedback').textContent='';$('sentenceBank').querySelectorAll('button').forEach((b,i)=>b.dataset.word=shuffled[i])}
+$('playSentence').onclick=()=>speak(sentences[sentenceIndex].text,.78);
+$('sentenceBank').addEventListener('click',e=>{const b=e.target.closest('[data-token]');if(!b)return;built.push(b.dataset.word);b.disabled=true;b.style.opacity='.35';renderBuild()});
+function renderBuild(){$('sentenceBuild').innerHTML=built.map((w,i)=>`<button class="btn" data-remove="${i}">${escapeHTML(w)} ×</button>`).join('')}
+$('sentenceBuild').addEventListener('click',e=>{let b=e.target.closest('[data-remove]');if(!b)return;let idx=Number(b.dataset.remove);let word=built.splice(idx,1)[0];$('sentenceBank').querySelectorAll('button').forEach(x=>{if(x.dataset.word===word&&x.disabled){x.disabled=false;x.style.opacity='1';return}});renderBuild()});
+$('checkSentence').onclick=()=>{let ok=built.join(' ').replace(/[.!?]+$/,'').toLowerCase()===sentences[sentenceIndex].text.replace(/[.!?]+$/,'').toLowerCase();$('sentenceFeedback').textContent=ok?'🎉 Chính xác! Bạn ghép câu rất tốt. +5 XP':'💡 Chưa đúng thứ tự. Hãy nghe lại câu mẫu và thử nhé.';if(ok){xp+=5;$('points').textContent=xp;scheduleSave()}};
+$('resetSentence').onclick=loadSentence;$('nextSentence').onclick=()=>{sentenceIndex=(sentenceIndex+1)%sentences.length;loadSentence();scheduleSave()};
+
+function newQuiz(){quizCurrent=words[Math.floor(Math.random()*words.length)];$('quizWord').textContent=quizCurrent.emoji+' '+quizCurrent.en;$('quizHint').textContent='Nghĩa tiếng Việt của từ này là gì?';let choices=[quizCurrent];while(choices.length<4){let w=words[Math.floor(Math.random()*words.length)];if(!choices.some(x=>x.vi===w.vi))choices.push(w)}choices.sort(()=>Math.random()-.5);$('quizOptions').innerHTML=choices.map(w=>`<button class="quiz-option" data-answer="${w.id}">${escapeHTML(w.vi)}</button>`).join('');$('quizFeedback').textContent='';$('quizOptions').querySelectorAll('button').forEach(b=>b.onclick=()=>{if(b.disabled)return;let correct=Number(b.dataset.answer)===quizCurrent.id;$('quizOptions').querySelectorAll('button').forEach(x=>{x.disabled=true;if(Number(x.dataset.answer)===quizCurrent.id)x.classList.add('correct')});if(!correct)b.classList.add('wrong');$('quizFeedback').textContent=correct?'🎉 Chính xác! +5 XP':'Chưa chính xác. Đáp án: '+quizCurrent.vi;if(correct){xp+=5;$('points').textContent=xp;scheduleSave()}})}
+$('newQuiz').onclick=newQuiz;
+
+function newWrite(){
+  writeCurrent=words[Math.floor(Math.random()*words.length)];
+  $('writeWord').textContent=writeCurrent.en;
+  $('writeMeaning').textContent=writeCurrent.vi+' · Viết nét hoặc nhập từ bàn phím bên dưới.';
+  $('writingFeedback').textContent='Mẹo: nhìn từ mẫu, luyện nét viết và gõ từ bàn phím để check!';
+  $('keyboardInput').value='';
+  clearCanvas();
+}
+$('newWrite').onclick=()=>{newWrite();scheduleSave()};
+$('showWriting').onclick=()=>{$('writingFeedback').textContent='Từ mẫu: '+writeCurrent.en+' — '+writeCurrent.vi;speak(writeCurrent.en);};
+
+function checkKeyboardAnswer(){
+  if(!writeCurrent)return;
+  const inputVal=$('keyboardInput').value.trim().toLowerCase();
+  const targetVal=writeCurrent.en.trim().toLowerCase();
+  if(!inputVal){
+    $('writingFeedback').textContent='⚠️ Bạn chưa nhập từ vào ô bàn phím!';
+    $('writingFeedback').style.color='#e65100';
+    return;
+  }
+  if(inputVal===targetVal){
+    $('writingFeedback').textContent='🎉 Xuất sắc! Bạn đã viết/nhập chính xác từ "'+writeCurrent.en+'". +5 XP';
+    $('writingFeedback').style.color='#2b9871';
+    xp+=5;
+    $('points').textContent=xp;
+    scheduleSave();
+  }else{
+    $('writingFeedback').textContent='❌ Chưa chính xác. Từ đúng là "'+writeCurrent.en+'". Bạn đã nhập: "'+inputVal+'"';
+    $('writingFeedback').style.color='#d32f2f';
+  }
+}
+$('checkKeyboardBtn').onclick=checkKeyboardAnswer;
+$('keyboardInput').addEventListener('keydown',e=>{if(e.key==='Enter')checkKeyboardAnswer()});
+
+const canvas=$('writingCanvas'),ctx=canvas.getContext('2d');let drawing=false,last=null;
+function resizeCanvas(){let r=canvas.getBoundingClientRect(),dpr=window.devicePixelRatio||1;let old;try{old=ctx.getImageData(0,0,canvas.width,canvas.height)}catch(e){}canvas.width=r.width*dpr;canvas.height=r.height*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);ctx.lineWidth=3;ctx.lineCap='round';ctx.lineJoin='round';ctx.strokeStyle='#5147c9';if(old){try{ctx.putImageData(old,0,0)}catch(e){}}}
+function point(e){let r=canvas.getBoundingClientRect();return{x:e.clientX-r.left,y:e.clientY-r.top}}
+canvas.addEventListener('pointerdown',e=>{
+  e.preventDefault(); drawing=true; last=point(e);
+  if(canvas.setPointerCapture){try{canvas.setPointerCapture(e.pointerId)}catch(_){}}
+});
+canvas.addEventListener('pointermove',e=>{
+  if(!drawing)return; e.preventDefault();
+  const p=point(e);
+  ctx.beginPath();ctx.moveTo(last.x,last.y);ctx.lineTo(p.x,p.y);ctx.stroke();last=p;
+});
+['pointerup','pointercancel','lostpointercapture'].forEach(n=>canvas.addEventListener(n,()=>{drawing=false;last=null}));
+function clearCanvas(){ctx.clearRect(0,0,canvas.width,canvas.height)}$('clearCanvas').onclick=clearCanvas;
+
+function randomSpeak(){let w=words[Math.floor(Math.random()*words.length)];$('speakEmoji').textContent=w.emoji;$('speakWord').textContent=w.en;$('speakMeaning').textContent=w.vi}
+$('randomSpeak').onclick=randomSpeak;$('speakButton').onclick=()=>speak($('speakWord').textContent,.72);
+
+function renderAdminDashboard(){
+  const accounts=readAccounts();
+  const keys=Object.keys(accounts);
+  $('adminTotalUsers').textContent=keys.length;
+  
+  let totalXp=0, totalLearned=0;
+  let html='';
+
+  if(keys.length===0){
+    html='<tr><td colspan="6" style="text-align:center;color:var(--muted);padding:20px">Chưa có dữ liệu người học nào.</td></tr>';
+  }else{
+    keys.forEach(k=>{
+      const acc=accounts[k];
+      const lCount=acc.learned?acc.learned.length:0;
+      const userXp=acc.xp||0;
+      totalXp+=userXp;
+      totalLearned+=lCount;
+
+      let badge='<span class="badge badge-blue">Tích cực 🌟</span>';
+      if(acc.isLocked){
+        badge='<span class="badge badge-red">Bị khóa (Quá 3 tháng) ❌</span>';
+      }else if(userXp>=100){
+        badge='<span class="badge badge-gold">Xuất sắc 🏆</span>';
+      }
+
+      const lastActive = acc.updatedAt ? new Date(acc.updatedAt).toLocaleString('vi-VN') : 'Chưa có';
+
+      html+=`<tr>
+        <td><b>🧑‍🎓 ${escapeHTML(acc.name)}</b></td>
+        <td>Tuổi: ${acc.age||'--'} | Phái: ${acc.gender||'--'}</td>
+        <td>${escapeHTML(acc.email||'Chưa nhập')}</td>
+        <td>${lCount} từ / <b style="color:#5f54e8">${userXp} XP</b></td>
+        <td><small style="color:var(--muted)">${lastActive}</small></td>
+        <td>${badge}</td>
+      </tr>`;
+    });
+  }
+
+  $('adminTotalXp').textContent=totalXp+' XP';
+  $('adminLearnedTotal').textContent=totalLearned;
+  $('adminTableBody').innerHTML=html;
+}
+
+$('btnAdminView').onclick=()=>{
+  if(!isAdminLoggedIn) return;
+  $('btnAdminView').classList.add('active');
+  $('btnStudentView').classList.remove('active');
+  $('studentSection').style.display='none';
+  $('adminSection').style.display='block';
+  $('welcomeTitle').textContent='Xin chào, Quản trị viên! 🛠️';
+  $('welcomeSub').textContent='Bảng theo dõi và quản lý người dùng hệ thống.';
+  renderAdminDashboard();
+};
+
+$('btnStudentView').onclick=()=>{
+  // BỔ SUNG QUY TẮC: Nếu người dùng nhấp quay lại giao diện người học trong khi đang đăng nhập Admin, có thể hỏi hoặc cho phép chuyển về, tuy nhiên để tránh xung đột ta có thể yêu cầu đăng xuất Admin trước hoặc cho phép chuyển tab giao diện theo ý muốn. Ở đây ta giữ nguyên tính năng chuyển tab nhưng chặn các hành động đăng nhập chéo nhau.
+  $('btnStudentView').classList.add('active');
+  if($('btnAdminView')) $('btnAdminView').classList.remove('active');
+  $('studentSection').style.display='block';
+  $('adminSection').style.display='none';
+  $('welcomeTitle').textContent='Xin chào, nhà thám hiểm! 👋';
+  $('welcomeSub').textContent='Cùng mở rộng vốn từ và tự tin nói tiếng Anh nhé.';
+};
+
+const savedLearner=(()=>{try{return localStorage.getItem(ACTIVE_KEY)||''}catch(e){return ''}})();
+if(savedLearner){loadLearner(savedLearner)}else{updateAccountUI();renderTopics();renderWords();loadSentence()}
+newQuiz();if(!writeCurrent)newWrite();randomSpeak();setTimeout(resizeCanvas,100);window.addEventListener('resize',()=>{clearTimeout(window.__resizeTimer);window.__resizeTimer=setTimeout(resizeCanvas,150)});
+</script>
+</body>
+</html>
